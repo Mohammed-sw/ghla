@@ -12,5 +12,6 @@ noBtn.addEventListener("mouseover", () => {
 });
 
 yesBtn.addEventListener("click", () => {
-    alert("حتى محمد يحبك 💖");
+    alert("حتى محمد يحبك 💜💜💜");
+
 });
