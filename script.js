@@ -1,24 +1,23 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-const buttonsContainer = document.querySelector(".buttons"); // الحصول على حاوية الأزرار
+// ***** التعديل الجديد هنا *****
+// تغيير المرجع من .buttons إلى #questionContainer
+const moveArea = document.getElementById("questionContainer"); 
 
 // دالة لتوليد موضع عشوائي جديد لزر "لا"
 function moveNoButton() {
     // 1. التأكد من تحويل الزر إلى موضع مطلق
     if (!noBtn.classList.contains('moving-no-btn')) {
-        // إذا كانت هذه هي المرة الأولى، نحوله إلى مطلق ونضيف الفئة
         noBtn.classList.add('moving-no-btn');
     }
 
-    // تحديد أبعاد الحركة ضمن حاوية الأزرار
-    const containerWidth = buttonsContainer.clientWidth;
-    const containerHeight = buttonsContainer.clientHeight;
+    // تحديد أبعاد الحركة ضمن حاوية السؤال (moveArea)
+    const containerWidth = moveArea.clientWidth;
+    const containerHeight = moveArea.clientHeight;
     
     // حساب المدى الأقصى للحركة ليبقى الزر مرئياً
     const maxX = containerWidth - noBtn.offsetWidth;
     const maxY = containerHeight - noBtn.offsetHeight;
-    
-    // إذا كانت الأبعاد صغيرة جداً، قد يتحرك الزر خارج نطاق الحاوية قليلاً، لكن هذا يضمن عدم اختفائه
     
     // توليد موقع عشوائي جديد
     const newX = Math.floor(Math.random() * maxX);
@@ -31,12 +30,11 @@ function moveNoButton() {
 
 // 1. حركة زر "لا" عند الضغط (click)
 noBtn.addEventListener("click", (e) => {
-    e.preventDefault(); // منع أي سلوك افتراضي للزر
+    e.preventDefault(); 
     moveNoButton();
 });
 
 // 2. رسالة التأكيد عند الضغط على "أكيد"
 yesBtn.addEventListener("click", () => {
     alert("حتى محمد يحبك 💜💜💜");
-    // زر "أكيد" ثابت ولا يحتاج لأي كود إضافي للثبات
 });
