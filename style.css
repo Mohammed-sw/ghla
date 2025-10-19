@@ -1,37 +1,37 @@
-/* هذا هو التعديل الأهم في هذا الملف */
-#questionContainer {
-    /* ... (بقية التنسيقات تبقى كما هي) ... */
-    padding: 20px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 85vw; 
-    max-width: 400px; 
-    z-index: 10;
-    
+body {
+    background-color: #bc98d3;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 15px; 
-    
-    /* ***** التعديل الجديد هنا ***** */
-    /* نجعل الحاوية المرجعية لزر "لا" هي questionContainer */
+    min-height: 100vh; 
+    margin: 0;
+    overflow: hidden; 
+    /* ***** التعديل الأهم: نجعل الـ body هو المرجع للحركة ***** */
     position: relative; 
 }
 
-/* تنسيق حاوية الأزرار - نُزيل منها الـ position: relative */
+/* حاوية السؤال - نُزيل منها الوضع النسبي لكي لا تعيق حركة الزر */
+#questionContainer {
+    /* ... (بقية التنسيقات تبقى كما هي) ... */
+    padding: 20px;
+    /* ... */
+    z-index: 10;
+    /* ***** التعديل الجديد: نُزيل الوضع النسبي ***** */
+    position: static; 
+}
+
+/* تنسيق حاوية الأزرار - نُزيل منها أي وضع خاص */
 .buttons {
     display: flex;
     justify-content: center; 
     gap: 20px;
     width: 100%;
-    /* ***** التعديل الجديد هنا ***** */
-    /* نُزيل الوضع النسبي من حاوية الأزرار */
+    /* ***** نُزيل الوضع النسبي ***** */
     position: static; 
     min-height: 50px; 
 }
-
-/* التنسيق المشترك للأزرار يبقى كما هو... */
 
 /* زر "لا" - يبدأ بجوار "أكيد" */
 #noBtn {
@@ -42,7 +42,7 @@
 
 /* الفئة التي تُضاف لزر "لا" عند الضغط ليصبح متحركاً */
 .moving-no-btn {
-    /* سيعتمد الآن على #questionContainer بدلاً من .buttons */
+    /* سيعتمد الآن على الـ body */
     position: absolute !important; 
     transition: none !important;
     z-index: 12; 
