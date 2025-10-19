@@ -1,8 +1,8 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-// ***** التعديل الجديد هنا *****
-// تغيير المرجع من .buttons إلى #questionContainer
-const moveArea = document.getElementById("questionContainer"); 
+
+// ***** التعديل الجديد: المرجع هو window (نافذة المتصفح) *****
+// لا نحتاج لتعريف متغير مرجعي إضافي الآن
 
 // دالة لتوليد موضع عشوائي جديد لزر "لا"
 function moveNoButton() {
@@ -11,9 +11,9 @@ function moveNoButton() {
         noBtn.classList.add('moving-no-btn');
     }
 
-    // تحديد أبعاد الحركة ضمن حاوية السؤال (moveArea)
-    const containerWidth = moveArea.clientWidth;
-    const containerHeight = moveArea.clientHeight;
+    // تحديد أبعاد الحركة ضمن كامل النافذة
+    const containerWidth = window.innerWidth;
+    const containerHeight = window.innerHeight;
     
     // حساب المدى الأقصى للحركة ليبقى الزر مرئياً
     const maxX = containerWidth - noBtn.offsetWidth;
@@ -38,3 +38,4 @@ noBtn.addEventListener("click", (e) => {
 yesBtn.addEventListener("click", () => {
     alert("حتى محمد يحبك 💜💜💜");
 });
+
