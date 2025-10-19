@@ -1,5 +1,6 @@
 body {
-    background-color: #ffdbe7;
+    /* لون الخلفية الجديد */
+    background-color: #bc98d3; 
     font-family: 'Poppins', sans-serif;
     text-align: center;
     display: flex;
@@ -7,8 +8,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
-    position: relative; /* مهم لزر "لا" */
+    overflow: hidden; 
+    position: relative; 
 }
 
 #questionContainer {
@@ -16,70 +17,74 @@ body {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    min-width: 350px; /* زيادة العرض الأدنى للحاوية */
+    min-width: 350px;
     max-width: 90%;
     z-index: 10;
-    /* لإظهار الازرار في وسط الحاوية */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* مسافة بين العناصر داخل الحاوية */
+    gap: 20px;
 }
 
 .gif-image {
-    width: 200px; /* حجم معقول للصورة */
+    width: 200px;
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
-    object-fit: cover; /* لضمان تغطية الصورة للمساحة المخصصة لها */
+    object-fit: cover;
 }
 
 h2 {
-    color: #ff4d6d;
-    margin-bottom: 20px; /* تقليل المسافة أسفل العنوان */
-    font-size: 28px; /* تكبير حجم الخط */
+    /* لون الخط للسؤال الجديد */
+    color: #51097f; 
+    margin-bottom: 20px;
+    font-size: 28px;
 }
 
 /* تنسيق الأزرار بشكل عام */
 .button-shared {
     border: none;
-    padding: 12px 30px; /* زيادة حجم الزر داخلياً */
+    padding: 12px 30px; 
     border-radius: 30px;
     cursor: pointer;
-    font-size: 20px; /* تكبير حجم الخط داخل الزر */
+    font-size: 20px; 
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    min-width: 120px; /* زيادة العرض الأدنى للزر */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* إضافة تظليل للأزرار */
+    min-width: 120px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    
+    /* لون الزر المشترك الجديد */
+    background-color: #51097f; 
+    color: white;
+    /* إلغاء position: relative هنا للتأكد من أن زر "لا" هو الوحيد المطلق */
+    position: static; 
 }
 
 .button-shared:hover {
     transform: scale(1.05);
-    opacity: 0.9; /* جعل الزر أكثر شفافية قليلاً عند المرور عليه */
+    opacity: 0.9;
 }
 
 #yesBtn {
-    background-color: #ff6f91;
-    color: white;
+    /* تم توحيد اللون مع #noBtn في button-shared لكن نحدد لـ yesBtn بشكل صريح */
+    background-color: #51097f;
 }
 
 #noBtn {
-    background-color: #ff4d6d;
-    color: white;
-    position: absolute;
-    margin: 0;
-    /* تحديد موقع مبدئي لزر "لا" ليكون بعيداً عن "نعم" */
-    left: 65%; /* يمكن تعديله يدوياً حسب الرغبة */
-    top: 55%;  /* يمكن تعديله يدوياً حسب الرغبة */
-    z-index: 5; /* لجعله يظهر تحت حاوية السؤال ولكنه متحرك */
-    transition: none !important; /* مهم لإلغاء أي انتقال بطيء أثناء الحركة العشوائية */
+    /* لإلغاء الموضع المطلق في البداية ليبقى بجوار "أكيد" */
+    position: static; 
+    /* يتم حذف باقي الخصائص المطلقة مثل top و left من هنا لكي يبدأ الزر في مكانه الطبيعي */
+    margin: 0 10px; /* إضافة هامش بسيط بين الزرين */
+    transition: none !important; 
 }
 
 /* تنسيق حاوية الأزرار لترتيبها أفقياً */
 .buttons {
+    /* مهم: يجب أن تكون حاوية الأزرار نسبية لكي لا يتحرك زر "لا" خارجها قبل الضغط الأول */
+    position: relative; 
     display: flex;
     justify-content: center;
-    gap: 30px;
-    width: 100%; /* لجعل الأزرار تأخذ عرض الحاوية */
-    margin-top: 10px; /* مسافة بسيطة من العنوان */
+    gap: 10px; /* تقليل المسافة ليكون الزران بجانب بعضهما */
+    width: 100%; 
+    margin-top: 10px; 
 }
