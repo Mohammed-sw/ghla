@@ -1,9 +1,6 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 
-// ***** التعديل الجديد: المرجع هو window (نافذة المتصفح) *****
-// لا نحتاج لتعريف متغير مرجعي إضافي الآن
-
 // دالة لتوليد موضع عشوائي جديد لزر "لا"
 function moveNoButton() {
     // 1. التأكد من تحويل الزر إلى موضع مطلق
@@ -38,4 +35,5 @@ noBtn.addEventListener("click", (e) => {
 yesBtn.addEventListener("click", () => {
     alert("حتى محمد يحبك 💜💜💜");
 });
+
 
