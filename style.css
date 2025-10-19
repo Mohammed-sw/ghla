@@ -1,32 +1,34 @@
 body {
-    background-color: #bc98d3; /* لون الخلفية الجديد */
+    /* الخلفية المطلوبة */
+    background-color: #bc98d3; 
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    /* لتوسيط المربع الأبيض */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     overflow: hidden; 
-    /* المرجع للحركة على كامل الشاشة */
+    /* المرجع لحركة زر "لا" على كامل الشاشة */
     position: relative; 
 }
 
-/* استرجاع المربع الأبيض وتنسيقه */
+/* حاوية السؤال - المربع الأبيض الجذاب */
 #questionContainer {
     padding: 30px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 85vw; 
-    max-width: 400px;
+    border-radius: 20px; /* جعل الحواف أكثر نعومة */
+    background-color: white; /* اللون الأبيض النقي */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* ظل أعمق وأجمل */
+    width: 80vw; /* عرض مرن للجوال */
+    max-width: 380px; /* حد أقصى للحجم */
     z-index: 10;
     
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; 
-    /* إزالة الوضع النسبي لتمكين حركة "لا" على الشاشة كلها */
+    gap: 20px; 
+    /* مهم لتمكين حركة "لا" على الشاشة كلها */
     position: static; 
 }
 
@@ -34,40 +36,42 @@ body {
     width: 150px;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     object-fit: cover;
 }
 
 h2 {
-    color: #51097f; /* لون السؤال الجديد */
-    margin: 0 0 20px 0;
-    font-size: 24px;
+    /* لون الخط المطلوب */
+    color: #51097f; 
+    margin: 0 0 25px 0;
+    font-size: 28px;
+    line-height: 1.3; /* تباعد أفضل للسطور */
 }
 
-/* حاوية الأزرار - نُزيل منها أي وضع خاص */
+/* حاوية الأزرار - لترتيب "أكيد" و "لا" بجوار بعضهما */
 .buttons {
     display: flex;
     justify-content: center; 
-    gap: 20px;
+    gap: 25px; /* مسافة أكبر بين الأزرار */
     width: 100%;
     position: static; 
     min-height: 50px; 
 }
 
-/* تنسيق الأزرار المشترك */
+/* تنسيق الأزرار المشترك - الحجم والشكل الجميل */
 .button-shared {
     border: none;
-    padding: 12px 20px; 
+    padding: 14px 25px; /* زيادة حجم الزر داخلياً */
     border-radius: 30px;
     cursor: pointer;
     font-size: 18px; 
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    min-width: 100px; 
+    min-width: 120px; /* عرض أدنى لتبدو الأزرار بارزة */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
-    background-color: #51097f; /* لون الأزرار الموحد الجديد */
+    /* لون الأزرار المطلوب */
+    background-color: #51097f; 
     color: white;
-    /* التأكد من أن الوضع ثابت في البداية لتبقى الأزرار بجوار بعضها */
     position: static; 
     z-index: 11; 
 }
@@ -82,8 +86,9 @@ h2 {
     transition: none !important;
 }
 
-/* الفئة التي تُضاف لزر "لا" عند الضغط ليصبح متحركاً على كامل الشاشة */
+/* فئة الحركة لزر "لا" */
 .moving-no-btn {
+    /* يتحرك على كامل الشاشة بالنسبة للـ body */
     position: absolute !important; 
     transition: none !important;
     z-index: 12; 
