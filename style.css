@@ -1,48 +1,89 @@
 body {
-    background-color: #bc98d3;
+    background-color: #bc98d3; /* لون الخلفية الجديد */
     font-family: 'Poppins', sans-serif;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; 
+    min-height: 100vh;
     margin: 0;
     overflow: hidden; 
-    /* ***** التعديل الأهم: نجعل الـ body هو المرجع للحركة ***** */
+    /* المرجع للحركة على كامل الشاشة */
     position: relative; 
 }
 
-/* حاوية السؤال - نُزيل منها الوضع النسبي لكي لا تعيق حركة الزر */
+/* استرجاع المربع الأبيض وتنسيقه */
 #questionContainer {
-    /* ... (بقية التنسيقات تبقى كما هي) ... */
-    padding: 20px;
-    /* ... */
+    padding: 30px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 85vw; 
+    max-width: 400px;
     z-index: 10;
-    /* ***** التعديل الجديد: نُزيل الوضع النسبي ***** */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+    /* إزالة الوضع النسبي لتمكين حركة "لا" على الشاشة كلها */
     position: static; 
 }
 
-/* تنسيق حاوية الأزرار - نُزيل منها أي وضع خاص */
+.gif-image {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+h2 {
+    color: #51097f; /* لون السؤال الجديد */
+    margin: 0 0 20px 0;
+    font-size: 24px;
+}
+
+/* حاوية الأزرار - نُزيل منها أي وضع خاص */
 .buttons {
     display: flex;
     justify-content: center; 
     gap: 20px;
     width: 100%;
-    /* ***** نُزيل الوضع النسبي ***** */
     position: static; 
     min-height: 50px; 
 }
 
+/* تنسيق الأزرار المشترك */
+.button-shared {
+    border: none;
+    padding: 12px 20px; 
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px; 
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    min-width: 100px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    background-color: #51097f; /* لون الأزرار الموحد الجديد */
+    color: white;
+    /* التأكد من أن الوضع ثابت في البداية لتبقى الأزرار بجوار بعضها */
+    position: static; 
+    z-index: 11; 
+}
+
+.button-shared:hover {
+    transform: scale(1.05);
+}
+
 /* زر "لا" - يبدأ بجوار "أكيد" */
 #noBtn {
-    /* نتركه يتبع التنسيق المشترك في البداية */
     position: static; 
     transition: none !important;
 }
 
-/* الفئة التي تُضاف لزر "لا" عند الضغط ليصبح متحركاً */
+/* الفئة التي تُضاف لزر "لا" عند الضغط ليصبح متحركاً على كامل الشاشة */
 .moving-no-btn {
-    /* سيعتمد الآن على الـ body */
     position: absolute !important; 
     transition: none !important;
     z-index: 12; 
