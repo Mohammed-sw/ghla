@@ -2,58 +2,48 @@ body {
     background-color: #ffdbe7;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    /* الحفاظ على التوسيط */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow: hidden; 
+    /* مهم: يجب أن يكون الوضع نسبيًا لضمان حركة زر "لا" ضمن الشاشة */
+    position: relative; 
 }
 
+/* تعديل عرض حاوية السؤال لجعلها أوسع */
 #questionContainer {
-    padding: 20px;
+    padding: 30px; /* زيادة التباعد الداخلي */
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
+    background-color: rgba(255, 255, 255, 0.9); /* زيادة الشفافية */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* تظليل أوضح */
+    min-width: 300px; /* تحديد عرض أدنى */
+    max-width: 90%; /* للتوافق مع شاشات الجوال */
+    z-index: 10; /* لجعل الحاوية فوق زر "لا" المتحرك */
 }
-/* (بقية كود CSS) */
-.gif-image {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-h2 {
-    color: #ff4d6d;
-    margin-bottom: 30px;
-}
-.button-shared {
-    border: none;
-    padding: 10px 25px;
-    border-radius: 30px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.1s;
-    min-width: 100px;
-}
-.button-shared:hover {
-    transform: scale(1.05);
-}
-#yesBtn {
-    background-color: #ff6f91;
-    color: white;
-}
+
+/* (بقية التنسيقات تبقى كما هي...) */
+
+/* التعديل الرئيسي لزر "لا" */
 #noBtn {
     background-color: #ff4d6d;
     color: white;
-    position: absolute;
+    /* نتركه مطلقًا ليتحرك في أي مكان داخل الـ body */
+    position: absolute; 
+    /* إزالة الـ margin لضمان تحركه من حافة الشاشة */
+    margin: 0; 
+    /* تحديد موقع مبدئي لمنع ظهوره في منتصف الصفحة قبل التحريك الأول */
+    left: 60%;
+    top: 55%;
+    transition: none !important; /* مهم: لإلغاء أي انتقال بطيء أثناء الحركة العشوائية */
 }
+
+/* تنسيق حاوية الأزرار لتكون أفقية */
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    position: relative;
+    gap: 30px; 
+    /* إزالة position: relative؛ لضمان أن يكون زر "لا" خارج نطاقها */
 }
