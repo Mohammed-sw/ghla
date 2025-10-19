@@ -1,0 +1,59 @@
+body {
+    background-color: #ffdbe7;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#questionContainer {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+/* (بقية كود CSS) */
+.gif-image {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    color: #ff4d6d;
+    margin-bottom: 30px;
+}
+.button-shared {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    min-width: 100px;
+}
+.button-shared:hover {
+    transform: scale(1.05);
+}
+#yesBtn {
+    background-color: #ff6f91;
+    color: white;
+}
+#noBtn {
+    background-color: #ff4d6d;
+    color: white;
+    position: absolute;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
